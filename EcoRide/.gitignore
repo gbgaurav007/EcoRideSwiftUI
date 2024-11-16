@@ -1,0 +1,68 @@
+# Xcode
+#
+# User-specific files
+*.xcuserstate
+
+# User-specific configuration files
+xcuserdata/
+*.xcuserdatad/
+
+# Build data
+build/
+DerivedData/
+
+# Swift Package Manager
+#
+# Dependencies
+/.build/
+/Packages/
+
+# Carthage
+#
+# Dependency manager for iOS
+Carthage/Build/
+
+# CocoaPods
+#
+# CocoaPods specific
+Pods/
+
+# Xcode Server
+#
+# Server-specific data
+*.xcscheme
+
+# Simulators
+#
+# iOS Simulator generated files
+*.app
+*.ipa
+*.dSYM
+*.xcarchive
+
+# SwiftUI Preview files
+*
+# SwiftUI Preview cache (for some users this directory can be quite large)
+DerivedData/
+
+# Playground files
+#
+# iOS playgrounds, log files, etc.
+timeline.xctimeline
+playground.xcworkspace
+*.playground
+
+# Android Studio files (if applicable)
+.idea/
+
+# Archive data
+#
+# .xcarchive is used by Xcode when building for Archive
+*.xcarchive
+
+# Log files
+*.log
+
+# iOS temporary files
+*.swp
+*.swo
