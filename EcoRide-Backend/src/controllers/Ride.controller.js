@@ -50,9 +50,11 @@ const publishRide = asyncHandler(async (req, res) => {
     price,
   });
 
+
   const savedRide = await newRide.save();
 
-
+  user.savedRides.push(savedRide._id);
+  await user.save();
 
   return res
     .status(201)
