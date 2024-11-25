@@ -50,7 +50,6 @@ const publishRide = asyncHandler(async (req, res) => {
     price,
   });
 
-
   const savedRide = await newRide.save();
 
   user.savedRides.push(savedRide._id);
@@ -80,8 +79,6 @@ const searchRides = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, rides, "Ride searched successfully"));
 });
 
-
-
 const bookRide = asyncHandler(async (req, res) => {
   const { rideId } = req.body;
 
@@ -94,7 +91,6 @@ const bookRide = asyncHandler(async (req, res) => {
   if (!ride) {
     throw new ApiError(404, "Ride not found");
   }
-
 
   if (ride.NumberOfpassengers <= ride.people.length) {
     throw new ApiError(400, "No seats available for this ride");
@@ -122,4 +118,16 @@ const bookRide = asyncHandler(async (req, res) => {
 });
 
 
-export { publishRide, searchRides, bookRide };
+const getSavedRides = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id).populate('savedRides');
+
+  if (!user) {
+    throw new ApiError(404, "User not found");
+  }
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, user.savedRides, "Saved rides fetched successfully"));
+});
+
+export { publishRide, searchRides, bookRide, getSavedRides};
